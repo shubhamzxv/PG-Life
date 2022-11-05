@@ -1,5 +1,5 @@
-# E-store
+# PGlife
+This is a website with some exciting functionality 
 
-  	- First create databse in phpmyadmin with the same name of give SQL file name.
-	- In that database import database.
-	- Import given SQL file to the database.
+Due to the existence of the database, it cannot be hosted on GitHub
+I will link the video . watch in Linkedln

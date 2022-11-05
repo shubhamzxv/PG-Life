@@ -1,40 +1,53 @@
-<?php
-        include 'includes/modal.php';
-        include 'includes/common.php';
-        ?>
-   <div class="navbar navbar-default navbar-fixed-top">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="index.php"><span style="color:orange" class="glyphicon glyphicon-home">&nbsp;E-Store.com</span></a>
-        </div>
-        <div class="collapse navbar-collapse" id="myNavbar">
-            <ul class="nav navbar-nav navbar-right">
-                <?php
-                if (isset($_SESSION['email'])) {
-                    ?>
-                     
-                    <li><a href = "cart.php"><span class = "glyphicon glyphicon-shopping-cart"></span> Cart</a></li>
-                    <li><a href = "settings.php"><span class = "glyphicon glyphicon-user"></span> Settings</a></li>
-                    <li><a href = "logout_script.php"><span class = "glyphicon glyphicon-log-in"></span> Logout</a></li>
+<div class="header sticky-top">
+    <nav class="navbar navbar-expand-md navbar-light">
+        <a class="navbar-brand" href="index.php">
+            <img src="img/logo.png" />
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#my-navbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-                    <?php
+        <div class="collapse navbar-collapse justify-content-end" id="my-navbar">
+            <ul class="navbar-nav">
+                <?php
+                //Check if user is loging or not
+                if (!isset($_SESSION["user_id"])) {
+                ?>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-toggle="modal" data-target="#signup-modal">
+                            <i class="fas fa-user"></i>Signup
+                        </a>
+                    </li>
+                    <div class="nav-vl"></div>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" data-toggle="modal" data-target="#login-modal">
+                            <i class="fas fa-sign-in-alt"></i>Login
+                        </a>
+                    </li>
+                <?php
                 } else {
-                    ?>
-                    <li><a href="signup.php"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-                    <li><a href="#" data-toggle="modal" data-target="#loginmodal"><span class="glyphicon glyphicon-log-in"></span> Log in</a></li>
-                    <li><a href="about_us.php"><span class="glyphicon glyphicon-th-list"></span> About Us</a></li>
-                    <li><a href="contact_us.php"><span class="glyphicon glyphicon-phone"></span> Contact Us</a></li>
-                        <?php
-                    }
-                    ?>
+                ?>
+                    <div class='nav-name'>
+                        Hi, <a href="./index.php" style = "text-decoration: none ; color: black;"><?php echo $_SESSION["full_name"] ?></a>
+                    </div>
+                    <li class="nav-item">
+                        <a class="nav-link" href="dashboard.php">
+                            <i class="fas fa-user"></i>Dashboard
+                        </a>
+                    </li>
+                    <div class="nav-vl"></div>
+                    <li class="nav-item">
+                        <a class="nav-link" href="logout.php">
+                            <i class="fas fa-sign-out-alt"></i>Logout
+                        </a>
+                    </li>
+                <?php
+                }
+                ?>
             </ul>
         </div>
-    </div>
+    </nav>
 </div>
 
-
+<div id="loading">
+</div>
